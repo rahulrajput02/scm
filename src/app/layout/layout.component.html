@@ -1,0 +1,21 @@
+<nav id="nav" class="navbar navbar-expand-sm bg-dark navbar-dark" fixed-top>
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="/">
+    <img src="https://www.evoketechnologies.com/images/logo-og.png" alt="logo" style="width:40px;">
+  </a>
+
+  <ul class="nav nav-pills">
+    <li>
+      <a class="nav-link" routerLink="/layout/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}">Dashboard</a>
+    </li>
+    <li>
+      <a class="nav-link" routerLink="/layout/pendingrequest" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}">Pending
+        Requests</a>
+    </li>
+    <li>
+      <a class="nav-link" routerLink="/layout/dashboard">Stock
+        Details</a>
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>

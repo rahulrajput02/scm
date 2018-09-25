@@ -1,0 +1,100 @@
+.heading {
+    text-align: center;
+    color: #03024c;
+  }
+  
+  .container {
+    max-width: 60%;
+  }
+  
+  .form-group {
+    margin-bottom: 2rem;
+  }
+  
+  .jumbotron {
+    padding: 2%;
+  }
+  
+  .spinner {
+    width: 8.6%;
+    margin-left: 4%;
+  }
+  
+  /* .form-group[_ngcontent-c0] {
+      margin-bottom: 1rem;
+  } */
+  
+  [hidden] {
+    display: none !important;
+  }
+  
+  .footerImage {
+    float: right;
+    width: 16%;
+    margin-top: 7%;
+    margin-right: 43%;
+  }
+  
+  .btn-primary {
+    color: white;
+    background-color: #01004ac7;
+    border-color: #01004ac7; 
+  }
+  
+  .btn-primary:hover {
+    background-color: #01004a8a;
+  }
+  
+  .cardStyle {
+    float: right;
+    margin-right: 5%;
+  }
+  
+  .logo {
+    position: relative;
+    left: 1.5%;
+    margin-top: 1%;
+    width: 3.5%;
+  }
+  
+  .btn-success {
+    background-color: #01b2aa;
+  }
+  
+  .savedMessage {
+    background-color: #ddffdd;
+    border-left: 6px solid #4CAF50;
+    text-align: center;
+    margin-top: 4%;
+  }
+  
+  .bg-dark {
+    background-color: #ffb88cb3!important;
+  }
+  
+  .nav-link {
+    /* display: block; */
+    padding: .5rem 1rem;
+    color: #03024c;
+  }
+  
+  .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #fd9d62;
+  }
+
+  .card-body {
+    flex: 1 1 auto;
+    padding: 0.4vw;
+    text-align: center;
+    background-color: #ffefbc;
+}
+
+.table .thead-dark th {
+  color: #fff;
+  background-color: #353571;
+  border-color: #353571f0;
+}
+  
+  
+  
