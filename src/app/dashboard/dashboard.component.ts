@@ -4,264 +4,107 @@ import { FormControl, FormGroup, FormBuilder, Validators, NgForm } from '@angula
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { AppService } from '../app.service';
-import { WebsocketService } from '../websocket.service';
+import { ChartService } from '../chart.service';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'dashboard-root',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
-  providers: [AppService, WebsocketService]
+  providers: [AppService]
 })
 export class dashboardComponent {
+  chart = []; // This will hold our chart info
   title = 'dashboard';
-  secondFormVisible = false;
-  firstFormVisible = true;
-  debtorOption;
-  securedPartyOption;
-  juisdictions;
-  selectedState;
-  collateralOption;
-  savedSuccess = false;
-  saveState = true;
-  validateBlock;
-  buttonClicked = false;
-  messages = [];
   connection;
+  dashboardData;
 
-  angularForm = new FormGroup({
-    newFillingRef: new FormControl(),
-    orgNameD: new FormControl(),
-    mailingAddressD: new FormControl(),
-    cityNameD: new FormControl(),
-    stateNameD: new FormControl(),
-    postalCodeD: new FormControl(),
-    orgNameS: new FormControl(),
-    mailingAddressS: new FormControl(),
-    cityNameS: new FormControl(),
-    stateNameS: new FormControl(),
-    postalCodeS: new FormControl(),
-    attachmentDesc: new FormControl()
-  });
-
-  constructor(private fb: FormBuilder, private httpClient: HttpClient, private websocketService: WebsocketService) {
-    this.createForm();
-    websocketService.messages.subscribe(msg => {
-      console.log("Response from websocket: " + msg);
-    });
-  }
-
-  createForm() {
-    this.angularForm = this.fb.group({
-      newFillingRef: ['', Validators.required],
-      orgNameD: ['', Validators.required],
-      mailingAddressD: ['', Validators.required],
-      cityNameD: ['', Validators.required],
-      stateNameD: ['', Validators.required],
-      postalCodeD: ['', Validators.required],
-      orgNameS: ['', Validators.required],
-      mailingAddressS: ['', Validators.required],
-      cityNameS: ['', Validators.required],
-      stateNameS: ['', Validators.required],
-      postalCodeS: ['', Validators.required],
-      attachmentDesc: ['', Validators.required],
-      selectedState: []
-    });
-  }
-
-  toggleButton() {
-    this.secondFormVisible = true;
-    this.firstFormVisible = false;
-
-    //GET METHOD FOR DEBTOR TYPE
-
-    this.httpClient.get(environment.getDebtorAPI)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.debtorOption = response;
-        },
-        err => {
-          console.log("Error Ocurred" + err);
-        }
-      )
-
-    //GET METHOD FOR SECURED PARTY TYPE
-
-    this.httpClient.get(environment.getSecuredPartyAPI)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.securedPartyOption = response;
-        },
-        err => {
-          console.log("Error Ocurred" + err);
-        }
-      )
-
-    //GET METHOD FOR COLLATERAL TYPE
-
-    this.httpClient.get(environment.getCollateralAPI)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.collateralOption = response;
-        },
-        err => {
-          console.log("Error Ocurred" + err);
-        }
-      )
-  }
-
-  refresh() {
-    window.location.reload();
+  constructor(private fb: FormBuilder, private httpClient: HttpClient, private _chart: ChartService) {
   }
 
   ngOnInit() {
-
-    this.httpClient.get(environment.getStatesAPI)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.selectedState = response;
-        },
-        err => {
-          console.log("Error Ocurred" + err);
-        }
-      )
-  }
-
-  typeChanged() {
-    const selectedState = this.angularForm.get('selectedState').value;
-    const data = { "state": selectedState };
-    this.httpClient.post(environment.getJurisdictionAPI, data)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.juisdictions = response;
-        },
-        err => {
-          console.log("Error Ocurred" + err);
-        }
-      )
-  }
-
-
-  newFilling(event) {
-    const target = event.target;
-
-    const newFillingState = target.querySelector('#newFillingState').value;
-    const newFillingJuidiction = target.querySelector('#newFillingJuidiction').value;
-    var fillingFormType;
-
-    if (target.querySelector('#UCC1').checked) {
-      fillingFormType = target.querySelector('#UCC1').value;
-    } else {
-      fillingFormType = target.querySelector('#UCC3').value;
+    console.log(1);
+    var dataGet = [{
+      id: '3324',
+      type: 'Shoe laces',
+      items: '500',
+      status: 'Dispatched',
+      lastUpdated: '02/10/2018, 1:34:23 pm'
+    },
+    {
+      id: '3478',
+      type: 'Polyster',
+      items: '900',
+      status: 'Confirmed',
+      lastUpdated: '18/10/2018, 12:34:03 am'
+    },
+    {
+      id: '1236',
+      type: 'Leather',
+      items: '240',
+      status: 'Recieved',
+      lastUpdated: '15/10/2018, 11:10:18 pm'
+    },
+    {
+      id: '7635',
+      type: 'Shoe laces',
+      items: '540',
+      status: 'Waiting',
+      lastUpdated: '12/10/2018, 10:14:29 pm'
+    },
+    {
+      id: '3456',
+      type: 'Rubber',
+      items: '380',
+      status: 'Dispatched',
+      lastUpdated: '10/10/2018, 03:30:13 pm'
     }
+    ]
 
-    const newFillingRef = target.querySelector('#newFillingRef').value;
-    const debtorType = target.querySelector('#debtorType').value;
-    var debtorPartyType;
+    this.dashboardData = dataGet;
 
-    if (target.querySelector('#business').checked) {
-      debtorPartyType = target.querySelector('#business').value;
-    } else {
-      debtorPartyType = target.querySelector('#individual').value;
-    }
+    this._chart.dailyForecast()
+      .subscribe(res => {
+        let temp_max = res['list'].map(res => res.main.temp_max);
+        let temp_min = res['list'].map(res => res.main.temp_min);
+        let alldates = res['list'].map(res => res.dt)
 
-    const debtorOrgName = target.querySelector('#debtorOrgName').value;
-    const debtorMaillingAddress = target.querySelector('#debtorMaillingAddress').value;
-    const debtorCity = target.querySelector('#debtorCity').value;
-    const debtorState = target.querySelector('#debtorState').value;
-    const debtorPostcode = target.querySelector('#debtorPostcode').value;
-    const securedtype = target.querySelector('#securedtype').value;
-    var securedPartyType;
-
-    if (target.querySelector('#securedBusiness').checked) {
-      securedPartyType = target.querySelector('#securedBusiness').value;
-    } else {
-      securedPartyType = target.querySelector('#securedindividual').value;
-    }
-
-    const securedOrgName = target.querySelector('#securedOrgName').value;
-    const securedmaillingAddress = target.querySelector('#securedmaillingAddress').value;
-    const securedCity = target.querySelector('#securedCity').value;
-    const securedState = target.querySelector('#securedState').value;
-    const securedPostcode = target.querySelector('#securedPostcode').value;
-    const collateralType = target.querySelector('#collateralType').value;
-    const attachmentType = target.querySelector('#attachmentType').value;
-    var collateralIS;
-
-    if (target.querySelector('#collateralIsNone').checked) {
-      collateralIS = target.querySelector('#securedBusiness').value;
-    } else if (target.querySelector('#collateralIsTrust').checked) {
-      collateralIS = target.querySelector('#collateralIsTrust').value;
-    } else {
-      collateralIS = target.querySelector('#collateralIsRep').value;
-    }
-
-    const myobj = {
-      "New_Filling_State": newFillingState, "New_Filling_Jurisdiction": newFillingJuidiction, "Filling_Form_Type": fillingFormType, "Billing_ref_1": newFillingRef, "Debtor_Type": debtorType, "Debtor_Party_type": debtorPartyType, "Debtor_Organisation_Name": debtorOrgName, "Debtor_Mailing_Address": debtorMaillingAddress, "Debtor_City": debtorCity, "Debtor_State": debtorState, "Debtor_Postal_Code": debtorPostcode,
-      "Secured_Party_Type": securedtype, "Party_Type": securedPartyType, "Secured_Party_Organisation_Name": securedOrgName, "Secured_Party_Mailing_Address": securedmaillingAddress, "Secured_Party_City": securedCity, "Secured_Party_State": securedState, "Secured_Party_Postal_Code": securedPostcode,
-      "Collateral_Type": collateralType, "Type_of_Attachment": attachmentType, "Collateral_Is": collateralIS
-    };
-
-    this.buttonClicked = true;
-
-    this.httpClient.post(environment.postNewFilling, myobj, { responseType: 'text' })
-      .subscribe(
-        response => {
-          console.log(response);
-          var hashFromResp = response;
-
-          var hashToBlock = {
-            "$class": "org.example.mynetwork.NewFilling",
-            "hashId": response
-          }
-
-          this.httpClient.post(environment.postToBlockChain, hashToBlock)
-            .subscribe(
-              response => {
-                this.httpClient.get(environment.getNewFillingFromBlock + hashFromResp)
-                  .subscribe(
-                    response => {
-                      var submitTrans = {
-                        "$class": "org.example.mynetwork.StoreHash",
-                        "newFilling": "resource:org.example.mynetwork.NewFilling#" + response["hashId"],
-                        "transactionId": "",
-                        "timestamp": new Date()
-                      }
-
-                      this.httpClient.post(environment.postHashToBlock, submitTrans)
-                        .subscribe(
-                          response => {
-                            this.savedSuccess = true;
-                            this.saveState = false;
-                            this.validateBlock = response;
-                            console.log(response["transactionId"]);
-
-                            const objTran = { "transactionId": response["transactionId"] };
-                            this.httpClient.post(environment.postTransactionId, objTran, { responseType: 'text' })
-                              .subscribe(
-                                response => {
-                                  console.log(response);
-                                  // window.setInterval(reload, 2500);
-
-                                  // function reload() {
-                                  //   window.location.reload();
-                                  // }
-                                }
-                              );
-                          });
-                    });
+        let weatherDates = []
+        alldates.forEach((res) => {
+          this.chart = new Chart('canvas', {
+            type: 'bar',
+            data: {
+              labels: ["Waiting", "Confirmed", "Dispached", "Recieved"],
+              datasets: [{
+                label: 'Number of Orders',
+                data: [12, 19, 3, 8],
+                backgroundColor: [
+                  'rgba(255, 99, 132, 0.7)',
+                  'rgba(54, 162, 235, 0.7)',
+                  'rgba(255, 206, 86, 0.7)',
+                  'rgba(75, 192, 192, 0.7)'
+                ],
+                borderColor: [
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }]
               }
-            );
-        },
-
-        err => {
-          console.log("Error Ocurred" + err);
-        }
-      )
+            }
+          });
+        })
+      })
   }
 
   validate() {
@@ -269,6 +112,6 @@ export class dashboardComponent {
       "Transaction ID": "12gdhwekjshr67364734353fsf",
       "Timestamp": '18-09-2018 03:14:07'
     }
-    alert(JSON.stringify(validateObj,null, "\t"));
+    alert(JSON.stringify(validateObj, null, "\t"));
   }
 }

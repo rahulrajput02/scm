@@ -4,7 +4,14 @@
 }
 
 .container {
-  max-width: 60%;
+  max-width: 65%;
+}
+
+.container2 {
+  max-width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 agm-map {
@@ -47,7 +54,7 @@ agm-map {
 .btn-primary {
   color: white;
   background-color: #01004ac7;
-  border-color: #01004ac7; 
+  border-color: #01004ac7;
 }
 
 .btn-primary:hover {
@@ -78,7 +85,7 @@ agm-map {
 }
 
 .bg-dark {
-  background-color: #ffb88cb3!important;
+  background-color: #ffb88cb3 !important;
 }
 
 .nav-link {
@@ -87,9 +94,12 @@ agm-map {
   color: #03024c;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
   color: #fff;
   background-color: #fd9d62;
 }
 
-
+.table {
+  width: 100%;
+}

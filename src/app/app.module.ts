@@ -5,6 +5,7 @@ import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ChartService } from './chart.service';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -46,7 +47,7 @@ import { AgmDirectionModule } from 'agm-direction';
     }),
     AgmDirectionModule
   ],
-  providers: [],
+  providers: [ChartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
