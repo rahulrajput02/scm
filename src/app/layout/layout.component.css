@@ -1,6 +1,5 @@
-
 .bg-dark {
-  background-color: #ffb88cb3!important;
+  background-color: #ffb88cb3 !important;
 }
 
 .nav-link {
@@ -9,7 +8,8 @@
   color: #03024c;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
   color: #fff;
   background-color: #fd9d62;
 }
@@ -18,6 +18,8 @@
   background-color: #efad8591;
 }
 
-
-
-
+.userIcon {
+  width: 40px;
+  display: block;
+  margin-left: auto;
+}

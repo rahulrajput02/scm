@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { dashboardComponent } from './dashboard/dashboard.component';
 import { pendingRequestComponent } from './pendingRequest/pendingRequest.component';
 import { layoutComponent } from './layout/layout.component';
+import { googleMapComponent } from './gooleMap/googleMap.component';
 
 
 export const appRoutes: Routes = [
@@ -18,6 +19,7 @@ export const appRoutes: Routes = [
             { path: 'dashboard', component: dashboardComponent },
             { path: 'pendingrequest', component: pendingRequestComponent },
             { path: 'createpackage', component: createPackageComponent },
+            { path: 'track', component: googleMapComponent}
         ]
     },
 ];

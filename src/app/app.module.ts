@@ -14,9 +14,13 @@ import { HomeComponent } from './home/home.component';
 import { dashboardComponent } from './dashboard/dashboard.component';
 import { pendingRequestComponent } from './pendingRequest/pendingRequest.component';
 import { layoutComponent } from './layout/layout.component';
+import { googleMapComponent } from './gooleMap/googleMap.component';
 
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+
+import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     layoutComponent,
     HomeComponent,
     dashboardComponent,
-    pendingRequestComponent
+    pendingRequestComponent,
+    googleMapComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,11 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
-    routing
+    routing,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAW5EYmqgopOATrTR_B_PopZL902Hi8_Jk'
+    }),
+    AgmDirectionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
