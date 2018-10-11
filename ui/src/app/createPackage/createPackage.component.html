@@ -1,59 +1,68 @@
-<div class="container">
-  <div class="jumbotron jumbotron-fluid">
-    <div class="heading">
-      <h2>
-        Create new order request!
-      </h2>
+<form (submit)="createPackage($event)" [formGroup]="angularForm" autocomplete="on" novalidate>
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="heading">
+        <h2>
+          Create new order request!
+        </h2>
+      </div>
     </div>
-  </div>
-  <br>
-  <div class="form-group">
-    <label>
-      <b>Order Type</b>
-    </label>
-    <select class="form-control form-control-sm" id="attachmentType">
-      <option>Shoes</option>
-      <option>T-shirts</option>
-      <option>Football</option>
-      <option>Socks</option>
-    </select>
-  </div>
+    <br>
+    <div class="form-group">
+      <label>
+        <b>Order Type</b>
+      </label>
+      <select class="form-control form-control-sm" formControlName="orderType" id="orderType">
+        <option>Shoes</option>
+        <option>T-shirts</option>
+        <option>Football</option>
+        <option>Socks</option>
+      </select>
+    </div>
 
-  <div class="form-group">
-    <label>
-      <b>Current Owner</b>
-    </label>
-    <select class="form-control form-control-sm" id="attachmentType">
-      <option>Supplier</option>
-      <option>Retailer</option>
-    </select>
+    <div class="form-group">
+      <label>
+        <b>Current Owner</b>
+      </label>
+      <select class="form-control form-control-sm" formControlName="currentOwner" id="currentOwner">
+        <option>Supplier</option>
+        <option>Retailer</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>
+        <b>Quantity Type</b>
+      </label>
+      <select class="form-control form-control-sm" formControlName="quantityType" id="quantityType">
+        <option>No.of Item</option>
+        <option>Weight(kg)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>
+        <b>Quantity</b>
+      </label>
+      <input class="form-control" type="text" formControlName="quantity" id="quantity">
+    </div>
+
+    <div *ngIf="angularForm.controls['quantity'].invalid && (angularForm.controls['quantity'].dirty || angularForm.controls['quantity'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="angularForm.controls['quantity'].errors.required">
+        Quantity is required.
+      </div>
+    </div>
+
+    <button routerLink="" type="button" style="margin-right: 8%" class="btn btn-secondary">
+      Cancel
+    </button>
+
+    <button type="submit" class="btn btn-success" class="btn btn-success" [disabled]="angularForm.controls['quantity'].pristine || angularForm.controls['quantity'].invalid">
+      Submit
+    </button>
   </div>
-
-  <div class="form-group">
-    <label>
-      <b>Quantity Type</b>
-    </label>
-    <select class="form-control form-control-sm" id="attachmentType">
-      <option>No.of Item</option>
-      <option>Weight(kg)</option>
-    </select>
+  <div>
+    <img class="image-bottom" src="https://steemitimages.com/0x0/http://llamasoft.de/wp-content/uploads/Box-Production-2-500.gif">
   </div>
-
-  <div class="form-group">
-    <label>
-      <b>Quantity</b>
-    </label>
-    <input class="form-control" type="text" id="newFillingRef">
-  </div>
-
-  <button routerLink="" type="button" style="margin-right: 8%" class="btn btn-secondary">
-    Cancel
-  </button>
-
-  <button type="button" class="btn btn-success" class="btn btn-success">
-    Submit
-  </button>
-</div>
-<div>
-  <img class="image-bottom" src="https://steemitimages.com/0x0/http://llamasoft.de/wp-content/uploads/Box-Production-2-500.gif">
-</div>
+</form>
