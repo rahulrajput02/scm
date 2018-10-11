@@ -52,13 +52,13 @@ agm-map {
 }
 
 .btn-primary {
-  color: white;
-  background-color: #01004ac7;
-  border-color: #01004ac7;
+  color: #040404;
+  background-color: #e4e4e8c7;
+  border-color: #ffffff;
 }
 
 .btn-primary:hover {
-  background-color: #01004a8a;
+  background-color: #8f8f96c7;;
 }
 
 .cardStyle {

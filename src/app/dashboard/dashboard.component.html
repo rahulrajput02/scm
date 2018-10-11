@@ -14,7 +14,13 @@
 
   <div class="container">
     <br>
-    <table id="example" class="table table-hover" style="width:100%">
+    <div class="btn-group btn-group-sm">
+      <button class="btn btn-primary active" (click)="all()">All</button>
+      <button class="btn btn-primary" (click)="recieved()">Recieved</button>
+      <button class="btn btn-primary" (click)="waiting()">Waiting</button>
+    </div>
+
+    <table id="example" class="table table-hover" style="width:100%; margin-top: 1%">
       <thead class="thead-dark">
         <tr>
           <th>Order ID</th>
