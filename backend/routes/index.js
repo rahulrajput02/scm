@@ -137,130 +137,28 @@ router.post('/getjurisdictions', jsonParser, async (req, res) => {
 })
 
 
-router.post('/submitdoc', jsonParser, async (req, res) => {
+router.post('/postorder', jsonParser, async (req, res) => {
 
-  // var data= req.body.state;
-  // console.log(data);
-  // db.query("SELECT jurisdiction FROM ucc.Drop_downs where state=" + "'" + data + "'", function(err, result) {
-  //   if (err) throw err;
-  //   else
-  //   console.log(result);
-  //   res.send(result);
-  // });
+  const data = {
+    Order_Type: req.body.type,
 
+    Current_Owner: req.body.currentOwner,
 
-  const generatePDF = wrap(function* () {
+    Quantity_Type: req.body.quantityType,
 
-    const data = {
+    Quantity: req.body.quantity,
+  };
 
-      student: {
-        name: 'Mahesh',
-        course: 'Mean Stack',
-        date: '22nd June',
-        year: '2016'
-      },
-      user: {
-        New_Filling_State: req.body.New_Filling_State,
+  console.log(data);
 
-        New_Filling_Jurisdiction: req.body.New_Filling_Jurisdiction,
-
-        Filling_Form_Type: req.body.Filling_Form_Type,
-
-        Billing_ref_1: req.body.Billing_ref_1,
-
-
-        Debtor_Type: req.body.Debtor_Type,
-
-        Debtor_Party_type: req.body.Debtor_Party_type,
-
-        Debtor_Organisation_Name: req.body.Debtor_Organisation_Name,
-
-        Debtor_Mailing_Address: req.body.Debtor_Mailing_Address,
-
-        Debtor_City: req.body.Debtor_City,
-
-        Debtor_State: req.body.Debtor_State,
-
-        Debtor_Postal_Code: req.body.Debtor_Postal_Code,
-
-
-        Secured_Party_Type: req.body.Secured_Party_Type,
-
-        Party_type: req.body.Party_type,
-
-        Secured_Party_Organisation_Name: req.body.Secured_Party_Organisation_Name,
-
-        Secured_Party_Mailing_Address: req.body.Secured_Party_Mailing_Address,
-
-        Secured_Party_City: req.body.Secured_Party_City,
-
-        Secured_Party_State: req.body.Secured_Party_State,
-
-        Secured_Party_Postal_Code: req.body.Secured_Party_Postal_Code,
-
-
-
-        Collateral_Type: req.body.Collateral_Type,
-
-        Type_of_Attachment: req.body.Type_of_Attachment,
-
-        Collateral_Is: req.body.Collateral_Is,
-      }
-    };
-
-    const source = yield read(join(`${__dirname}/template1.html`), 'utf-8');
-    const template = handlebars.compile(source);
-    const html = template(data);
-    const p = pdf.create(html, pdf_options);
-    p.toFile = thunkify(p.toFile);
-    var pa = '../certificateddocs/' + req.body.Debtor_Mailing_Address + 'document.pdf';
-    console.log(pa);
-    yield p.toFile(`${join(__dirname, '../certificateddocs/'+ req.body.Debtor_Mailing_Address +'document.pdf')}`);
-    // res.send("Document submited successfully");
-
-  });
-
-
-
-
-  await generatePDF();
-
-  var fs = require('fs');
-  var sha256 = require('sha256');
-
-  fs.readFile(`${join(__dirname, '../certificateddocs/' +req.body.Debtor_Mailing_Address +'document.pdf')}`, function (err, buf) {
-
+  db.query("insert into scm.packageData (orderType,currentOwner,quantiyType, quantiyType) VALUES('" + Order_Type + "','" + Current_Owner + "', '" + Quantity_Type + "','" + Quantity + "')", function (err, result) {
     if (err) {
-      console.log(err)
-    } else {
-      var filepath = '../certificateddocs/' + req.body.Debtor_Mailing_Address + 'document.pdf';
-      hash = sha256(buf);
-
-
-      // db.query("select id from ucc.Documents order by id desc limit 1", function (err, result) {
-      //   if (err) {
-      //     console.log(err);
-      //   } else
-      //     console.log(result);
-      //   if (result.length == 0) {
-      //     count = 1;
-      //   } else {
-      //     count = result[0].id + 1;
-      //     console.log(count);
-      //   }
-
-      db.query("insert into ucc.Documents (PDF_Hash, Pdf_Path) VALUES('" + hash + "','" + filepath + "')", function (err, result) {
-        if (err) {
-          console.log(err);
-        } else
-          console.log(result);
-        res.send(hash);
-      });
-      // });
-    }
+      console.log(err);
+    } else
+      console.log(result);
+    res.send("DONE");
   });
 });
-
 
 router.post('/postTransactionId', function (req, res) {
 
