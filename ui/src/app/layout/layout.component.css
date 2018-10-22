@@ -1,21 +1,21 @@
 .bg-dark {
-  background-color: #ffb88cb3 !important;
+  background-color: #243f71 !important;
 }
 
 .nav-link {
   /* display: block; */
   padding: .5rem 1rem;
-  color: #03024c;
+  color: white;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
   color: #fff;
-  background-color: #fd9d62;
+  background-color: #3960a7;
 }
 
 .nav a:hover {
-  background-color: #efad8591;
+  background-color: #3960a773;
 }
 
 .userIcon {

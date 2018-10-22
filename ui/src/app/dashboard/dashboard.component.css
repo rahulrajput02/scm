@@ -85,19 +85,19 @@ agm-map {
 }
 
 .bg-dark {
-  background-color: #ffb88cb3 !important;
+  background-color: #243f71 !important;
 }
 
 .nav-link {
   /* display: block; */
   padding: .5rem 1rem;
-  color: #03024c;
+  color: white;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
   color: #fff;
-  background-color: #fd9d62;
+  background-color: #6385c3;
 }
 
 .table {

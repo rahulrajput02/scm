@@ -33,7 +33,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of dashboardData" [ngClass]="{'table-success' : (data.status == 'Confirmed'), 'table-danger': (data.status == 'Waiting')}">
+        <tr *ngFor="let data of dashboardData" [ngClass]="{'table-success' : (data.status == 'Recieved'), 'table-danger': (data.status == 'Waiting')}">
           <td><a href="">{{data.id}}</a></td>
           <td>{{data.type}}</td>
           <td>{{data.items}}</td>

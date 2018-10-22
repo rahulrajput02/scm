@@ -30,21 +30,21 @@ export class dashboardComponent {
       id: '3324',
       type: 'Shoe laces',
       items: '500',
-      status: 'Recieved',
+      status: 'Confirmed',
       lastUpdated: '02/10/2018, 1:34:23 pm'
     },
     {
       id: '3478',
-      type: 'Polyster',
+      type: 'Recieved',
       items: '900',
-      status: 'Confirmed',
+      status: 'Recieved',
       lastUpdated: '18/10/2018, 12:34:03 am'
     },
     {
       id: '1236',
       type: 'Leather',
       items: '240',
-      status: 'Recieved',
+      status: 'Confirmed',
       lastUpdated: '15/10/2018, 11:10:18 pm'
     },
     {
@@ -70,7 +70,7 @@ export class dashboardComponent {
     this.chart = new Chart('canvas', {
       type: 'bar',
       data: {
-        labels: ["Waiting", "Confirmed", "Dispached", "Recieved"],
+        labels: ["Waiting", "Recieved", "Dispached", "Confirmed"],
         datasets: [{
           label: 'Orders Status',
           data: [12, 19, 3, 8],
@@ -116,18 +116,11 @@ export class dashboardComponent {
   recieved() {
     var dataGet = [
       {
-        id: '3324',
-        type: 'Shoe laces',
-        items: '500',
+        id: '3478',
+        type: 'Recieved',
+        items: '900',
         status: 'Recieved',
-        lastUpdated: '02/10/2018, 1:34:23 pm'
-      },
-      {
-        id: '1236',
-        type: 'Leather',
-        items: '240',
-        status: 'Recieved',
-        lastUpdated: '15/10/2018, 11:10:18 pm'
+        lastUpdated: '18/10/2018, 12:34:03 am'
       }
     ]
 
