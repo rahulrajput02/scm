@@ -10,11 +10,11 @@ import { ChartService } from './chart.service';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { loginComponent } from './login/login.component';
-import { createPackageComponent } from './createPackage/createPackage.component';
+import { createCargoComponent } from './createCargo/createCargo.component';
 import { HomeComponent } from './home/home.component';
 import { dashboardComponent } from './dashboard/dashboard.component';
 import { pendingRequestComponent } from './pendingRequest/pendingRequest.component';
-import { layoutComponent } from './layout/layout.component';
+import { transporterLayoutComponent } from './transporterLayout/transporterLayout.component';
 import { googleMapComponent } from './gooleMap/googleMap.component';
 
 import { HttpModule } from '@angular/http';
@@ -27,8 +27,8 @@ import { AgmDirectionModule } from 'agm-direction';
   declarations: [
     AppComponent,
     loginComponent,
-    createPackageComponent,
-    layoutComponent,
+    createCargoComponent,
+    transporterLayoutComponent,
     HomeComponent,
     dashboardComponent,
     pendingRequestComponent,

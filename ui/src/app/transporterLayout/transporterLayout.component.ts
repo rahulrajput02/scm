@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 
 @Component({
-    selector: 'app-layout',
-    templateUrl: './layout.component.html',
-    styleUrls: ['./layout.component.css']
+    selector: 'app-transporterLayout',
+    templateUrl: './transporterLayout.component.html',
+    styleUrls: ['./transporterLayout.component.css']
 })
-export class layoutComponent {
+export class transporterLayoutComponent {
 
     form = new FormGroup({
     });
 
     constructor(private fb: FormBuilder) { }
 
-    
+
 }

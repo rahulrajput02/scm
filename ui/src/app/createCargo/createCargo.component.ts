@@ -5,11 +5,11 @@ import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'createPackage-root',
-    templateUrl: './createPackage.component.html',
-    styleUrls: ['./createPackage.component.css']
+    selector: 'createCargo-root',
+    templateUrl: './createCargo.component.html',
+    styleUrls: ['./createCargo.component.css']
 })
-export class createPackageComponent {
+export class createCargoComponent {
     transactionLink;
     validate;
     studentData;
@@ -64,7 +64,7 @@ export class createPackageComponent {
             )
     }
 
-    createPackage(event) {
+    createCargo(event) {
         const target = event.target;
 
         const orderType = target.querySelector('#orderType').value;

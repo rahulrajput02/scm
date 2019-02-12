@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-home',
@@ -11,5 +12,15 @@ export class HomeComponent {
     form = new FormGroup({
     });
 
-    constructor(private fb: FormBuilder) { }
+    constructor(private fb: FormBuilder, private router: Router) { }
+
+    submit() {
+      const username = document.getElementById('userName').value;
+      console.log(username);
+      if(username == 'transporter') {
+        this.router.navigateByUrl('/transporter/dashboard');
+      } else {
+        window.location.reload();
+      }
+    }
 }
