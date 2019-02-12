@@ -1,6 +1,6 @@
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
-.banner-sec{background:url(https://www.sustainabilityconsortium.org/wp-content/themes/enfold-child/assets/images/supply-chain-diagrams-graphics/ld_new_scd.gif)  no-repeat left bottom; background-size:cover; min-height:500px; border-radius: 0 10px 10px 0; padding:0;}
+.banner-sec{background:url(https://cdn.dribbble.com/users/410907/screenshots/2287360/captain_dock.gif)  no-repeat left bottom; background-size:cover; min-height:450px; border-radius: 0 10px 10px 0; padding:0;}
 
 .container{background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1);}
 
@@ -20,7 +20,7 @@
 
 .login-sec h2:after{content:" "; width:100px; height:5px; background:#FEB58A; display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}
 
-.btn-login{background: #6385c3; color:#fff; font-weight:600;}
+.btn-login{background: #3e4764f0; color:#fff; font-weight:600;}
 
 .banner-text{width:70%; position:absolute; bottom:40px; padding-left:20px;}
 
@@ -32,19 +32,19 @@
 
 .scm-heading {
   text-align: center;
-  margin-bottom: 2%;
-  color: white;
+  margin-bottom: 3%;
+  color: #3e4764f0;
 }
 .login-block[_ngcontent-c1] {
     background: #6385c3;
-    background: linear-gradient(to bottom, #6385c3, #243f71);
+    background: linear-gradient(to bottom, #e3e4e35e , #ffffff);
     float: left;
     width: 100%;
     padding: 50px 0;
 }
 
 .login-sec[_ngcontent-c1] h2[_ngcontent-c1] {
-    color: #243f71;
+    color: #3e4764f0;
 }
 
 .login-sec[_ngcontent-c1] h2[_ngcontent-c1]:after {
