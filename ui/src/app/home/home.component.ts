@@ -15,7 +15,7 @@ export class HomeComponent {
     constructor(private fb: FormBuilder, private router: Router) { }
 
     submit() {
-      const username = document.getElementById('userName').value;
+      const username = (<HTMLInputElement>document.getElementById('userName')).value;
       console.log(username);
       if(username == 'transporter') {
         this.router.navigateByUrl('/transporter/dashboard');

@@ -17,6 +17,7 @@ export class createCargoComponent {
     transactionData;
     fileUrl;
 
+
     angularForm = new FormGroup({
         orderType: new FormControl(),
         currentOwner: new FormControl(),
@@ -67,105 +68,42 @@ export class createCargoComponent {
     createCargo(event) {
         const target = event.target;
 
-        const orderType = target.querySelector('#orderType').value;
-        const currentOwnerSelection = target.querySelector('#currentOwner').value;
-
-        var currentOwnerValue;
-
-        if (currentOwnerSelection === 'Supplier') {
-            currentOwnerValue = 'S1'
-        } else {
-            currentOwnerValue = 'R1'
-        }
-
-        const quantityTypeSelection = target.querySelector('#quantityType').value;
-        var quantityTypeValue;
-
-        if (quantityTypeSelection === 'No.of Item') {
-            quantityTypeValue = 'ITEM'
-        } else {
-            quantityTypeValue = 'POUNDS'
-        }
-
-
+        const statusType = target.querySelector('#statusType').value;
+        const currentLocation = target.querySelector('#currentLocation').value;
+        const shipFrom = target.querySelector('#shipFrom').value;
+        const shipTo = target.querySelector('#ShipTo').value;
+        const transType = target.querySelector('#transType').value;
         const quantity = target.querySelector('#quantity').value;
 
-        // const myobj = {
-        //     "Order_Type": orderType, "Current_Owner": currentOwner, "Quantity_Type": quantityType, "Quantity": quantity
-        // };
 
         const myObj = {
-            "$class": "scm.Package",
-            "packageId": "5678",
-            "type": orderType,
-            "currentOwner": "resource:scm.SupplychainParticipant#" + currentOwnerValue,
-            "quantity": quantity,
-            "quantityType": quantityTypeValue
+            "key": "",
+            "txnId": "",
+            "timestamp": "",
+            "cargoId": "",
+            "shippedFrom": shipFrom,
+            "shippedTo": shipTo,
+            "cargoLocation": currentLocation,
+            "transportationType": transType,
+            "containerQty": quantity,
+            "owner": "",
+            "associatedContainerHashIds": "",
+            "status": statusType
         }
 
         console.log(myObj);
 
-        this.httpClient.post('http://localhost:5000/api/scm.Package', myObj)
-            .subscribe(
-                response => {
-                    console.log(response);
-
-                    this.httpClient.post(environment.postOrderRequest, myObj, { responseType: 'text' })
-                        .subscribe(
-                            response => {
-                                console.log(response);
-                            }
-                        )
-
-                    // this.httpClient.post(environment.postOrderRequest, myobj, { responseType: 'text' })
-                    //     .subscribe(
-                    //         response => {
-                    //             console.log(response);
-                    //             var id = response;
-
-                    //             var orderData = {
-                    //                 "$class": "org.example.mynetwork.NewFilling",
-                    //                 "hashId": response
-                    //             }
-
-                    //             this.httpClient.post(environment.postToBlockChain, orderData)
-                    //                 .subscribe(
-                    //                     response => {
-                    //                         this.httpClient.get(environment.getNewFillingFromBlock + id)
-                    //                             .subscribe(
-                    //                                 response => {
-                    //                                     var submitTrans = {
-                    //                                         "$class": "org.example.mynetwork.StoreHash",
-                    //                                         "newFilling": "resource:org.example.mynetwork.NewFilling#" + response["hashId"],
-                    //                                         "transactionId": "",
-                    //                                         "timestamp": new Date()
-                    //                                     }
-
-                    //                                     this.httpClient.post(environment.postHashToBlock, submitTrans)
-                    //                                         .subscribe(
-                    //                                             response => {
-                    //                                                 this.savedSuccess = true;
-                    //                                                 this.saveState = false;
-                    //                                                 this.validateBlock = response;
-                    //                                                 console.log(response["transactionId"]);
-
-                    //                                                 const objTran = { "transactionId": response["transactionId"] };
-                    //                                                 this.httpClient.post(environment.postTransactionId, objTran, { responseType: 'text' })
-                    //                                                     .subscribe(
-                    //                                                         response => {
-                    //                                                             console.log(response);
-                    //                                                             // window.setInterval(reload, 2500);
-
-                    //                                                             // function reload() {
-                    //                                                             //   window.location.reload();
-                    //                                                             // }
-                    //                                                         }
-                    //                                                     );
-                    //                                             });
-                    //                                 });
-                    //                     }
-                    //                 );
-                    //         });
-                });
+        // this.httpClient.post('http://localhost:5000/api/scm.Package', myObj)
+        //     .subscribe(
+        //         response => {
+        //             console.log(response);
+        //
+        //             this.httpClient.post(environment.postOrderRequest, myObj, { responseType: 'text' })
+        //                 .subscribe(
+        //                     response => {
+        //                         console.log(response);
+        //                     }
+        //                 )
+        //         });
     }
 }

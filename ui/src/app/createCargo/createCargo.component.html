@@ -3,52 +3,74 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="heading">
         <h2>
-          Create new order request!
+          Create new Cargo!
         </h2>
       </div>
     </div>
-    <br>
     <div class="form-group">
       <label>
-        <b>Order Type</b>
+        <b>Cargo Status</b>
       </label>
-      <select class="form-control form-control-sm" formControlName="orderType" id="orderType">
-        <option>Shoes</option>
-        <option>T-shirts</option>
-        <option>Football</option>
-        <option>Socks</option>
+      <select class="form-control" formControlName="orderType" id="statusType">
+        <option disabled selected value>-- Select status --</option>
+        <option value="ready">Ready</option>
+        <option value="intransit">In-Transit</option>
+        <option value="arrived">Arrived</option>
       </select>
     </div>
 
     <div class="form-group">
       <label>
-        <b>Current Owner</b>
+        <b>Current location</b>
       </label>
-      <select class="form-control form-control-sm" formControlName="currentOwner" id="currentOwner">
-        <option>Supplier</option>
-        <option>Retailer</option>
-      </select>
+      <input class="form-control form-control-sm" type="text" formControlName="quantity" id="currentLocation">
     </div>
 
-    <div class="form-group">
-      <label>
-        <b>Quantity Type</b>
-      </label>
-      <select class="form-control form-control-sm" formControlName="quantityType" id="quantityType">
-        <option>No.of Item</option>
-        <option>Weight(kg)</option>
-      </select>
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <div class="form-group">
+          <label>
+            <b>Shipping From</b>
+          </label>
+          <input class="form-control form-control-sm" type="text" formControlName="quantity" id="shipFrom">
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <div class="form-group">
+          <label>
+            <b>Shipping To</b>
+          </label>
+          <input class="form-control form-control-sm" type="text" formControlName="quantity" id="ShipTo">
+        </div>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label>
-        <b>Quantity</b>
-      </label>
-      <input class="form-control" type="text" formControlName="quantity" id="quantity">
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <div class="form-group">
+          <label>
+            <b>Transportation Type</b>
+          </label>
+          <select class="form-control form-control-sm" formControlName="orderType" id="transType">
+            <option disabled selected value> -- Select type -- </option>
+            <option value="air">Air</option>
+            <option value="ocean">Ocean</option>
+            <option value="road">Road</option>
+            <option value="multimodal">Multimodal</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <div class="form-group">
+          <label>
+            <b>Container Quantity</b>
+          </label>
+          <input class="form-control form-control-sm" type="text" formControlName="quantity" id="quantity">
+        </div>
+      </div>
     </div>
 
-    <div *ngIf="angularForm.controls['quantity'].invalid && (angularForm.controls['quantity'].dirty || angularForm.controls['quantity'].touched)"
-      class="alert alert-danger">
+    <div *ngIf="angularForm.controls['quantity'].invalid && (angularForm.controls['quantity'].dirty || angularForm.controls['quantity'].touched)" class="alert alert-danger">
       <div *ngIf="angularForm.controls['quantity'].errors.required">
         Quantity is required.
       </div>
@@ -58,7 +80,7 @@
       Cancel
     </button>
 
-    <button type="submit" class="btn btn-success" class="btn btn-success" [disabled]="angularForm.controls['quantity'].pristine || angularForm.controls['quantity'].invalid">
+    <button type="submit" class="btn btn-success" [disabled]="angularForm.controls['quantity'].pristine || angularForm.controls['quantity'].invalid">
       Submit
     </button>
   </div>
