@@ -23,26 +23,28 @@
     <table id="example" class="table table-hover" style="width:100%; margin-top: 1%">
       <thead class="thead-dark">
         <tr>
-          <th>Order ID</th>
-          <th>Order Type</th>
-          <th>No.of Items</th>
-          <th>Order Status</th>
-          <th>Last Updated</th>
-          <th>Vaidate</th>
+          <th>Cargo Id</th>
+          <th>Transportation</th>
+          <th>Current Location</th>
+          <th>Shipped From</th>
+          <th>Shipped To</th>
+          <th>Container Quantity</th>
+          <th style="text-align: center; vertical-align: middle;">Last Updated</th>
+          <th>Trace</th>
           <th>Track</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let data of dashboardData" [ngClass]="{'table-success' : (data.status == 'Recieved'), 'table-danger': (data.status == 'Waiting')}">
           <td><a href="">{{data.id}}</a></td>
-          <td>{{data.type}}</td>
-          <td>{{data.items}}</td>
-          <td>{{data.status}}</td>
+          <td style="text-align: center; vertical-align: middle;">{{data.transportationType}}</td>
+          <td style="text-align: center; vertical-align: middle;">{{data.currentLocation}}</td>
+          <td>{{data.shippedFrom}}</td>
+          <td style="text-align: center; vertical-align: middle;">{{data.shippedTo}}</td>
+          <td style="text-align: center; vertical-align: middle;">{{data.containerQuantity}}</td>
           <td>{{data.lastUpdated}}</td>
-          <td><a (click)="validate()" onmouseover="" style="cursor: pointer;"><img src="https://image.flaticon.com/icons/png/512/152/152930.png"
-                alt="" border="3" height="30px" width="32px" /></a></td>
-          <td><a routerLink="/layout/track"><img src="http://i1.wp.com/androidmag.de/wp-content/uploads/2014/03/Auto-Finder-icon.png?fit=300%2C300&w=640"
-                alt="" border="3" height="32px" width="36px" /></a></td>
+          <td style="text-align: center; vertical-align: middle;"><a (click)="validate()" onmouseover="" style="cursor: pointer;"><img src="http://cdn.onlinewebfonts.com/svg/img_192452.png" alt="" border="3" height="30px" width="32px" /></a></td>
+          <td style="text-align: center; vertical-align: middle;"><a routerLink="/layout/track"><img src="http://i1.wp.com/androidmag.de/wp-content/uploads/2014/03/Auto-Finder-icon.png?fit=300%2C300&w=640" alt="" border="3" height="32px" width="36px" /></a></td>
         </tr>
       </tbody>
     </table>

@@ -27,39 +27,49 @@ export class dashboardComponent {
   ngOnInit() {
     console.log(1);
     var dataGet = [{
-      id: '3324',
-      type: 'Shoe laces',
-      items: '500',
-      status: 'Confirmed',
+      id: 'CG001',
+      transportationType: 'Shoe laces',
+      currentLocation: '500',
+      shippedFrom: 'Confirmed',
+      shippedTo: '500',
+      containerQuantity: '500',
       lastUpdated: '02/10/2018, 1:34:23 pm'
     },
     {
-      id: '3478',
-      type: 'Recieved',
-      items: '900',
-      status: 'Recieved',
-      lastUpdated: '18/10/2018, 12:34:03 am'
+      id: 'CG002',
+      transportationType: 'Shoe laces',
+      currentLocation: '500',
+      shippedFrom: 'Confirmed',
+      shippedTo: '500',
+      containerQuantity: '500',
+      lastUpdated: '02/10/2018, 1:34:23 pm'
     },
     {
-      id: '1236',
-      type: 'Leather',
-      items: '240',
-      status: 'Confirmed',
-      lastUpdated: '15/10/2018, 11:10:18 pm'
+      id: 'CG003',
+      transportationType: 'Shoe laces',
+      currentLocation: '500',
+      shippedFrom: 'Confirmed',
+      shippedTo: '500',
+      containerQuantity: '500',
+      lastUpdated: '02/10/2018, 1:34:23 pm'
     },
     {
-      id: '7635',
-      type: 'Shoe laces',
-      items: '540',
-      status: 'Waiting',
-      lastUpdated: '12/10/2018, 10:14:29 pm'
+      id: 'CG004',
+      transportationType: 'Shoe laces',
+      currentLocation: '500',
+      shippedFrom: 'Confirmed',
+      shippedTo: '500',
+      containerQuantity: '500',
+      lastUpdated: '02/10/2018, 1:34:23 pm'
     },
     {
-      id: '3456',
-      type: 'Rubber',
-      items: '380',
-      status: 'Dispatched',
-      lastUpdated: '10/10/2018, 03:30:13 pm'
+      id: 'CG005',
+      transportationType: 'Shoe laces',
+      currentLocation: '500',
+      shippedFrom: 'Confirmed',
+      shippedTo: '500',
+      containerQuantity: '500',
+      lastUpdated: '02/10/2018, 1:34:23 pm'
     }
     ]
 
