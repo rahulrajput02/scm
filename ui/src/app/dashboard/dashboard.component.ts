@@ -28,47 +28,29 @@ export class dashboardComponent {
     console.log(1);
     var dataGet = [{
       id: 'CG001',
-      transportationType: 'Shoe laces',
-      currentLocation: '500',
-      shippedFrom: 'Confirmed',
-      shippedTo: '500',
+      transportationType: 'Road',
+      currentLocation: 'Bangkok',
+      shippedFrom: 'China',
+      shippedTo: 'Netherland',
       containerQuantity: '500',
       lastUpdated: '02/10/2018, 1:34:23 pm'
     },
     {
       id: 'CG002',
-      transportationType: 'Shoe laces',
-      currentLocation: '500',
-      shippedFrom: 'Confirmed',
-      shippedTo: '500',
-      containerQuantity: '500',
+      transportationType: 'Air',
+      currentLocation: 'India',
+      shippedFrom: 'USA',
+      shippedTo: 'Australia',
+      containerQuantity: '60',
       lastUpdated: '02/10/2018, 1:34:23 pm'
     },
     {
       id: 'CG003',
-      transportationType: 'Shoe laces',
-      currentLocation: '500',
-      shippedFrom: 'Confirmed',
-      shippedTo: '500',
-      containerQuantity: '500',
-      lastUpdated: '02/10/2018, 1:34:23 pm'
-    },
-    {
-      id: 'CG004',
-      transportationType: 'Shoe laces',
-      currentLocation: '500',
-      shippedFrom: 'Confirmed',
-      shippedTo: '500',
-      containerQuantity: '500',
-      lastUpdated: '02/10/2018, 1:34:23 pm'
-    },
-    {
-      id: 'CG005',
-      transportationType: 'Shoe laces',
-      currentLocation: '500',
-      shippedFrom: 'Confirmed',
-      shippedTo: '500',
-      containerQuantity: '500',
+      transportationType: 'Ocean',
+      currentLocation: 'Germany',
+      shippedFrom: 'Italy',
+      shippedTo: 'France',
+      containerQuantity: '40',
       lastUpdated: '02/10/2018, 1:34:23 pm'
     }
     ]

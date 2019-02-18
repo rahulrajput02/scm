@@ -94,6 +94,11 @@ agm-map {
   color: white;
 }
 
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
   color: #fff;

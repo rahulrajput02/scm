@@ -1,17 +1,6 @@
 <div>
   <br>
 
-  <!-- <div class="cardStyle">
-    <div class="card" style="width:160px">
-      <img class="card-img-top" src="https://suppastore-rancher.s3.amazonaws.com/brands/thumbnail/36/adidas-black_1.png"
-        alt="Card image" style="width:100%">
-      <div class="card-body">
-        <h5 class="card-title">Rahul Rajput</h5>
-        <p class="card-text">Manufacturing</p>
-      </div>
-    </div>
-  </div> -->
-
   <div class="container">
     <br>
     <div class="btn-group btn-group-sm">
@@ -20,7 +9,7 @@
       <button class="btn btn-primary" (click)="waiting()">Waiting</button>
     </div>
 
-    <table id="example" class="table table-hover" style="width:100%; margin-top: 1%">
+    <table id="example" class="table table-striped" style="width:100%; margin-top: 1%">
       <thead class="thead-dark">
         <tr>
           <th>Cargo Id</th>
@@ -37,14 +26,14 @@
       <tbody>
         <tr *ngFor="let data of dashboardData" [ngClass]="{'table-success' : (data.status == 'Recieved'), 'table-danger': (data.status == 'Waiting')}">
           <td><a href="">{{data.id}}</a></td>
-          <td style="text-align: center; vertical-align: middle;">{{data.transportationType}}</td>
-          <td style="text-align: center; vertical-align: middle;">{{data.currentLocation}}</td>
+          <td>{{data.transportationType}}</td>
+          <td>{{data.currentLocation}}</td>
           <td>{{data.shippedFrom}}</td>
-          <td style="text-align: center; vertical-align: middle;">{{data.shippedTo}}</td>
-          <td style="text-align: center; vertical-align: middle;">{{data.containerQuantity}}</td>
+          <td>{{data.shippedTo}}</td>
+          <td>{{data.containerQuantity}}</td>
           <td>{{data.lastUpdated}}</td>
-          <td style="text-align: center; vertical-align: middle;"><a (click)="validate()" onmouseover="" style="cursor: pointer;"><img src="http://cdn.onlinewebfonts.com/svg/img_192452.png" alt="" border="3" height="30px" width="32px" /></a></td>
-          <td style="text-align: center; vertical-align: middle;"><a routerLink="/layout/track"><img src="http://i1.wp.com/androidmag.de/wp-content/uploads/2014/03/Auto-Finder-icon.png?fit=300%2C300&w=640" alt="" border="3" height="32px" width="36px" /></a></td>
+          <td><a (click)="validate()" onmouseover="" style="cursor: pointer;"><img src="http://cdn.onlinewebfonts.com/svg/img_192452.png" alt="" border="3" height="30px" width="32px" /></a></td>
+          <td><a routerLink="/layout/track"><img src="http://i1.wp.com/androidmag.de/wp-content/uploads/2014/03/Auto-Finder-icon.png?fit=300%2C300&w=640" alt="" border="3" height="32px" width="36px" /></a></td>
         </tr>
       </tbody>
     </table>
