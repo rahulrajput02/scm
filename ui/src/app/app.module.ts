@@ -13,9 +13,12 @@ import { loginComponent } from './login/login.component';
 import { createCargoComponent } from './createCargo/createCargo.component';
 import { HomeComponent } from './home/home.component';
 import { dashboardComponent } from './dashboard/dashboard.component';
+import { supplierDashboardComponent } from './supplierDashboard/supplierDashboard.component';
 import { pendingRequestComponent } from './pendingRequest/pendingRequest.component';
 import { transporterLayoutComponent } from './transporterLayout/transporterLayout.component';
 import { googleMapComponent } from './gooleMap/googleMap.component';
+import { supplierLayoutComponent } from './supplierLayout/supplierLayout.component';
+import { createContainerComponent } from './createContainer/createContainer.component';
 
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
@@ -29,10 +32,13 @@ import { AgmDirectionModule } from 'agm-direction';
     loginComponent,
     createCargoComponent,
     transporterLayoutComponent,
+    supplierLayoutComponent,
+    supplierDashboardComponent,
     HomeComponent,
     dashboardComponent,
     pendingRequestComponent,
-    googleMapComponent
+    googleMapComponent,
+    createContainerComponent
   ],
   imports: [
     BrowserModule,

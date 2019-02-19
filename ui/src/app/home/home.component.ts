@@ -19,6 +19,8 @@ export class HomeComponent {
       console.log(username);
       if(username == 'transporter') {
         this.router.navigateByUrl('/transporter/dashboard');
+      } else if(username == 'supplier') {
+        this.router.navigateByUrl('/supplier/dashboard');
       } else {
         window.location.reload();
       }

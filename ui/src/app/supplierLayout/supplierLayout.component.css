@@ -1,0 +1,25 @@
+.bg-dark {
+  background-color: #3e4764f0 !important;
+}
+
+.nav-link {
+  /* display: block; */
+  padding: .5rem 1rem;
+  color: white;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+  color: #fff;
+  background-color: #3960a7;
+}
+
+.nav a:hover {
+  background-color: #3960a773;
+}
+
+.userIcon {
+  width: 40px;
+  display: block;
+  margin-left: auto;
+}
