@@ -28,7 +28,7 @@ export class supplierDashboardComponent {
     console.log(1);
     var dataGet = [{
       id: 'CG001',
-      transportationType: 'Road',
+      statusType: 'Available',
       currentLocation: 'Bangkok',
       shippedFrom: 'China',
       shippedTo: 'Netherland',
@@ -37,7 +37,7 @@ export class supplierDashboardComponent {
     },
     {
       id: 'CG002',
-      transportationType: 'Air',
+      statusType: 'Loaded',
       currentLocation: 'India',
       shippedFrom: 'USA',
       shippedTo: 'Australia',
@@ -46,7 +46,16 @@ export class supplierDashboardComponent {
     },
     {
       id: 'CG003',
-      transportationType: 'Ocean',
+      statusType: 'In-Cargo',
+      currentLocation: 'Germany',
+      shippedFrom: 'Italy',
+      shippedTo: 'France',
+      containerQuantity: '40',
+      lastUpdated: '02/10/2018, 1:34:23 pm'
+    },
+    {
+      id: 'CG003',
+      statusType: 'Unloaded',
       currentLocation: 'Germany',
       shippedFrom: 'Italy',
       shippedTo: 'France',

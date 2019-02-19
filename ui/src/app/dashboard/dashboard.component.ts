@@ -28,7 +28,7 @@ export class dashboardComponent {
     console.log(1);
     var dataGet = [{
       id: 'CG001',
-      transportationType: 'Road',
+      statusType: 'Ready',
       currentLocation: 'Bangkok',
       shippedFrom: 'China',
       shippedTo: 'Netherland',
@@ -37,7 +37,7 @@ export class dashboardComponent {
     },
     {
       id: 'CG002',
-      transportationType: 'Air',
+      statusType: 'Arrived',
       currentLocation: 'India',
       shippedFrom: 'USA',
       shippedTo: 'Australia',
@@ -46,7 +46,7 @@ export class dashboardComponent {
     },
     {
       id: 'CG003',
-      transportationType: 'Ocean',
+      statusType: 'In-Transit',
       currentLocation: 'Germany',
       shippedFrom: 'Italy',
       shippedTo: 'France',

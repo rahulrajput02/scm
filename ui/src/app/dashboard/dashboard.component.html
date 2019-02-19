@@ -13,7 +13,7 @@
       <thead class="thead-dark">
         <tr>
           <th>Cargo Id</th>
-          <th>Transportation</th>
+          <th>Cargo Status</th>
           <th>Current Location</th>
           <th>Shipped From</th>
           <th>Shipped To</th>
@@ -27,7 +27,7 @@
         <tr *ngFor="let data of dashboardData" [ngClass]="{'table-success' : (data.status == 'Recieved'), 'table-danger': (data.status == 'Waiting')}">
           <td><a style="color:blue; cursor:pointer; " (click)="openModal(data.id)"><b>{{data.id}}</b></a></td>
           <td>{{data.transportationType}}</td>
-          <td>{{data.currentLocation}}</td>
+          <td>{{data.statusType}}</td>
           <td>{{data.shippedFrom}}</td>
           <td>{{data.shippedTo}}</td>
           <td>{{data.containerQuantity}}</td>
