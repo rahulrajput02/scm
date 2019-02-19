@@ -25,15 +25,15 @@
       </thead>
       <tbody>
         <tr *ngFor="let data of dashboardData" [ngClass]="{'table-success' : (data.status == 'Recieved'), 'table-danger': (data.status == 'Waiting')}">
-          <td><a href="">{{data.id}}</a></td>
+          <td><a style="color:blue; cursor:pointer; " (click)="openModal(data.id)"><b>{{data.id}}</b></a></td>
           <td>{{data.transportationType}}</td>
           <td>{{data.currentLocation}}</td>
           <td>{{data.shippedFrom}}</td>
           <td>{{data.shippedTo}}</td>
           <td>{{data.containerQuantity}}</td>
           <td>{{data.lastUpdated}}</td>
-          <td><a (click)="validate()" onmouseover="" style="cursor: pointer;"><img src="http://cdn.onlinewebfonts.com/svg/img_192452.png" alt="" border="3" height="30px" width="32px" /></a></td>
-          <td><a routerLink="/layout/track"><img src="http://i1.wp.com/androidmag.de/wp-content/uploads/2014/03/Auto-Finder-icon.png?fit=300%2C300&w=640" alt="" border="3" height="32px" width="36px" /></a></td>
+          <td><a (click)="validate()" onmouseover="" style="cursor: pointer;"><img src="assets/trace.png" alt="" border="3" height="30px" width="32px" /></a></td>
+          <td><a routerLink="/transporter/track"><img src="http://i1.wp.com/androidmag.de/wp-content/uploads/2014/03/Auto-Finder-icon.png?fit=300%2C300&w=640" alt="" border="3" height="32px" width="36px" /></a></td>
         </tr>
       </tbody>
     </table>
@@ -43,3 +43,31 @@
     <canvas id="canvas">{{ chart }}</canvas>
   </div>
 </div>
+
+
+<!-- ******************************** Modal *********************************************** !-->
+
+<div id="myModal1" class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display1}">
+  <div class="backdrop">
+    <div class="modal-dialog" role="document">
+
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Cargo - {{cargoId}}</h4>
+          <button type="button" class="close" aria-label="Close" (click)='onCloseHandled()'><span aria-hidden="true">&times;</span></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <img class="modelImage" src="assets/arch2.png" />
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" (click)="onCloseHandled()">Close</button>
+        </div>
+      </div>
+    </div><!-- /.modal-dialog -->
+  </div>
+</div><!-- /.modal !-->

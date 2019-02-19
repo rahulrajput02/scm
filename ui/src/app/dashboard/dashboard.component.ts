@@ -18,8 +18,8 @@ export class dashboardComponent {
   title = 'dashboard';
   connection;
   dashboardData;
-
-
+  display1;
+  cargoId;
 
   constructor(private fb: FormBuilder, private httpClient: HttpClient, private _chart: ChartService) {
   }
@@ -132,4 +132,14 @@ export class dashboardComponent {
 
     this.dashboardData = dataGet;
   }
+
+  openModal(id) {
+  this.display1 = 'block';
+  this.cargoId = id;
+}
+
+onCloseHandled() {
+  this.display1 = 'none';
+}
+
 }
