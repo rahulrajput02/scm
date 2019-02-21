@@ -4,8 +4,6 @@ import { FormControl, FormGroup, FormBuilder, Validators, NgForm } from '@angula
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { AppService } from '../app.service';
-import { ChartService } from '../chart.service';
-import { Chart } from 'chart.js';
 
 @Component({
   selector: 'supplierDashboard-root',
@@ -22,7 +20,7 @@ export class supplierDashboardComponent {
   containerId;
   cargoType;
 
-  constructor(private fb: FormBuilder, private httpClient: HttpClient, private _chart: ChartService) {
+  constructor(private fb: FormBuilder, private httpClient: HttpClient) {
   }
 
   ngOnInit() {
@@ -70,41 +68,6 @@ export class supplierDashboardComponent {
     ]
 
     this.dashboardData = dataGet;
-
-
-
-    this.chart = new Chart('canvas', {
-      type: 'bar',
-      data: {
-        labels: ["Waiting", "Recieved", "Dispached", "Confirmed"],
-        datasets: [{
-          label: 'Orders Status',
-          data: [12, 19, 3, 8],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.7)',
-            'rgba(75, 192, 192, 0.7)',
-            'rgba(255, 206, 86, 0.7)',
-            'rgba(54, 162, 235, 0.7)',
-          ],
-          borderColor: [
-            'rgba(255,99,132,1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(54, 162, 235, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
-    });
   }
 
   validate() {
