@@ -20,6 +20,7 @@ export class supplierDashboardComponent {
   dashboardData;
   display1;
   cargoId;
+  cargoType;
 
   constructor(private fb: FormBuilder, private httpClient: HttpClient, private _chart: ChartService) {
   }
@@ -27,40 +28,44 @@ export class supplierDashboardComponent {
   ngOnInit() {
     console.log(1);
     var dataGet = [{
-      id: 'CG001',
+      id: 'CN101',
       statusType: 'Available',
       currentLocation: 'Bangkok',
       shippedFrom: 'China',
       shippedTo: 'Netherland',
       customStatus: 'Completed',
-      lastUpdated: '02/10/2018, 1:34:23 pm'
+      lastUpdated: '02/10/2018, 1:34:23 pm',
+      type: 'Air'
     },
     {
-      id: 'CG002',
+      id: 'CN102',
       statusType: 'Available',
       currentLocation: 'India',
       shippedFrom: 'USA',
       shippedTo: 'Australia',
       customStatus: 'Completed',
-      lastUpdated: '02/10/2018, 1:34:23 pm'
+      lastUpdated: '02/10/2018, 1:34:23 pm',
+      type: 'Ocean'
     },
     {
-      id: 'CG003',
+      id: 'CN103',
       statusType: 'In-Cargo',
       currentLocation: 'Germany',
       shippedFrom: 'Italy',
       shippedTo: 'France',
       customStatus: 'Completed',
-      lastUpdated: '02/10/2018, 1:34:23 pm'
+      lastUpdated: '02/10/2018, 1:34:23 pm',
+      type: 'Road'
     },
     {
-      id: 'CG003',
+      id: 'CN104',
       statusType: 'Unloaded',
       currentLocation: 'Germany',
       shippedFrom: 'Italy',
       shippedTo: 'France',
       customStatus: 'Pending',
-      lastUpdated: '02/10/2018, 1:34:23 pm'
+      lastUpdated: '02/10/2018, 1:34:23 pm',
+      type: 'Air'
     }
     ]
 
@@ -117,22 +122,24 @@ export class supplierDashboardComponent {
   available() {
     var dataGet = [
       {
-        id: 'CG001',
+        id: 'CN101',
         statusType: 'Available',
         currentLocation: 'Bangkok',
         shippedFrom: 'China',
         shippedTo: 'Netherland',
         customStatus: 'Completed',
-        lastUpdated: '02/10/2018, 1:34:23 pm'
+        lastUpdated: '02/10/2018, 1:34:23 pm',
+        type: 'Air'
       },
       {
-        id: 'CG002',
+        id: 'CN102',
         statusType: 'Available',
         currentLocation: 'India',
         shippedFrom: 'USA',
         shippedTo: 'Australia',
         customStatus: 'Completed',
-        lastUpdated: '02/10/2018, 1:34:23 pm'
+        lastUpdated: '02/10/2018, 1:34:23 pm',
+        type: 'Ocean'
       },
     ]
 
@@ -142,26 +149,28 @@ export class supplierDashboardComponent {
   unloaded() {
     var dataGet = [
       {
-        id: 'CG003',
+        id: 'CN104',
         statusType: 'Unloaded',
         currentLocation: 'Germany',
         shippedFrom: 'Italy',
         shippedTo: 'France',
         customStatus: 'Pending',
-        lastUpdated: '02/10/2018, 1:34:23 pm'
+        lastUpdated: '02/10/2018, 1:34:23 pm',
+        type: 'Road'
       }
     ]
 
     this.dashboardData = dataGet;
   }
 
-  openModal(id) {
-  this.display1 = 'block';
-  this.cargoId = id;
-}
+  openModal(data) {
+    this.display1 = 'block';
+    this.cargoId = data.id;
+    this.cargoType = data.type;
+  }
 
-onCloseHandled() {
-  this.display1 = 'none';
-}
+  onCloseHandled() {
+    this.display1 = 'none';
+  }
 
 }

@@ -26,8 +26,8 @@
       <tbody>
         <tr *ngFor="let data of dashboardData" [ngClass]="{'table-success' : (data.status == 'Recieved'), 'table-danger': (data.status == 'Waiting')}">
           <td><a style="color:blue; cursor:pointer; " (click)="openModal(data.id)"><b>{{data.id}}</b></a></td>
-          <td>{{data.transportationType}}</td>
           <td>{{data.statusType}}</td>
+          <td>{{data.currentLocation}}</td>
           <td>{{data.shippedFrom}}</td>
           <td>{{data.shippedTo}}</td>
           <td>{{data.containerQuantity}}</td>

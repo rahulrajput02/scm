@@ -70,25 +70,23 @@ export class createContainerComponent {
 
         const statusType = target.querySelector('#statusType').value;
         const currentLocation = target.querySelector('#currentLocation').value;
-        const shipFrom = target.querySelector('#shipFrom').value;
-        const shipTo = target.querySelector('#ShipTo').value;
-        const transType = target.querySelector('#transType').value;
-        const quantity = target.querySelector('#quantity').value;
-
+        const owner = target.querySelector('#owner').value;
+        const manufacturer = target.querySelector('#manufacturer').value;
 
         const myObj = {
             "key": "",
             "txnId": "",
             "timestamp": "",
             "cargoId": "",
-            "shippedFrom": shipFrom,
-            "shippedTo": shipTo,
+            "shippedFrom": "",
+            "shippedTo": "",
             "cargoLocation": currentLocation,
-            "transportationType": transType,
-            "containerQty": quantity,
-            "owner": "",
+            "transportationType": "",
+            "containerQty": "",
+            "owner": owner,
             "associatedContainerHashIds": "",
-            "status": statusType
+            "status": statusType,
+            "manufacturer" : manufacturer
         }
 
         console.log(myObj);
