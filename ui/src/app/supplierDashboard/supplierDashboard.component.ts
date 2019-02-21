@@ -32,16 +32,16 @@ export class supplierDashboardComponent {
       currentLocation: 'Bangkok',
       shippedFrom: 'China',
       shippedTo: 'Netherland',
-      containerQuantity: '500',
+      customStatus: 'Completed',
       lastUpdated: '02/10/2018, 1:34:23 pm'
     },
     {
       id: 'CG002',
-      statusType: 'Loaded',
+      statusType: 'Available',
       currentLocation: 'India',
       shippedFrom: 'USA',
       shippedTo: 'Australia',
-      containerQuantity: '60',
+      customStatus: 'Completed',
       lastUpdated: '02/10/2018, 1:34:23 pm'
     },
     {
@@ -50,7 +50,7 @@ export class supplierDashboardComponent {
       currentLocation: 'Germany',
       shippedFrom: 'Italy',
       shippedTo: 'France',
-      containerQuantity: '40',
+      customStatus: 'Completed',
       lastUpdated: '02/10/2018, 1:34:23 pm'
     },
     {
@@ -59,7 +59,7 @@ export class supplierDashboardComponent {
       currentLocation: 'Germany',
       shippedFrom: 'Italy',
       shippedTo: 'France',
-      containerQuantity: '40',
+      customStatus: 'Pending',
       lastUpdated: '02/10/2018, 1:34:23 pm'
     }
     ]
@@ -114,28 +114,41 @@ export class supplierDashboardComponent {
     this.ngOnInit();
   }
 
-  recieved() {
+  available() {
     var dataGet = [
       {
-        id: '3478',
-        type: 'Recieved',
-        items: '900',
-        status: 'Recieved',
-        lastUpdated: '18/10/2018, 12:34:03 am'
-      }
+        id: 'CG001',
+        statusType: 'Available',
+        currentLocation: 'Bangkok',
+        shippedFrom: 'China',
+        shippedTo: 'Netherland',
+        customStatus: 'Completed',
+        lastUpdated: '02/10/2018, 1:34:23 pm'
+      },
+      {
+        id: 'CG002',
+        statusType: 'Available',
+        currentLocation: 'India',
+        shippedFrom: 'USA',
+        shippedTo: 'Australia',
+        customStatus: 'Completed',
+        lastUpdated: '02/10/2018, 1:34:23 pm'
+      },
     ]
 
     this.dashboardData = dataGet;
   }
 
-  waiting() {
+  unloaded() {
     var dataGet = [
       {
-        id: '7635',
-        type: 'Shoe laces',
-        items: '540',
-        status: 'Waiting',
-        lastUpdated: '12/10/2018, 10:14:29 pm'
+        id: 'CG003',
+        statusType: 'Unloaded',
+        currentLocation: 'Germany',
+        shippedFrom: 'Italy',
+        shippedTo: 'France',
+        customStatus: 'Pending',
+        lastUpdated: '02/10/2018, 1:34:23 pm'
       }
     ]
 

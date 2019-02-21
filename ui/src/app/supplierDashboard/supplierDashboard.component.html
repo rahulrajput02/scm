@@ -5,8 +5,8 @@
     <br>
     <div class="btn-group btn-group-sm">
       <button class="btn btn-primary active" (click)="all()">All</button>
-      <button class="btn btn-primary" (click)="recieved()">Recieved</button>
-      <button class="btn btn-primary" (click)="waiting()">Waiting</button>
+      <button class="btn btn-primary" (click)="available()">Available</button>
+      <button class="btn btn-primary" (click)="unloaded()">Unloaded</button>
     </div>
 
     <table id="example" class="table table-striped" style="width:100%; margin-top: 1%">
@@ -17,7 +17,7 @@
           <th>Current Location</th>
           <th>Shipped From</th>
           <th>Shipped To</th>
-          <th>Container Quantity</th>
+          <th>Custom Status</th>
           <th style="text-align: center; vertical-align: middle;">Last Updated</th>
           <th>Trace</th>
           <th>Track</th>
@@ -30,7 +30,7 @@
           <td>{{data.currentLocation}}</td>
           <td>{{data.shippedFrom}}</td>
           <td>{{data.shippedTo}}</td>
-          <td>{{data.containerQuantity}}</td>
+          <td>{{data.customStatus}}</td>
           <td>{{data.lastUpdated}}</td>
           <td><a (click)="validate()" onmouseover="" style="cursor: pointer;"><img src="assets/trace.png" alt="" border="3" height="30px" width="32px" /></a></td>
           <td><a routerLink="/transporter/track"><img src="http://i1.wp.com/androidmag.de/wp-content/uploads/2014/03/Auto-Finder-icon.png?fit=300%2C300&w=640" alt="" border="3" height="32px" width="36px" /></a></td>

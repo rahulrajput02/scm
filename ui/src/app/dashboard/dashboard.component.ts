@@ -105,28 +105,32 @@ export class dashboardComponent {
     this.ngOnInit();
   }
 
-  recieved() {
+  arrived() {
     var dataGet = [
       {
-        id: '3478',
-        type: 'Recieved',
-        items: '900',
-        status: 'Recieved',
-        lastUpdated: '18/10/2018, 12:34:03 am'
+        id: 'CG002',
+        statusType: 'Arrived',
+        currentLocation: 'India',
+        shippedFrom: 'USA',
+        shippedTo: 'Australia',
+        containerQuantity: '60',
+        lastUpdated: '02/10/2018, 1:34:23 pm'
       }
     ]
 
     this.dashboardData = dataGet;
   }
 
-  waiting() {
+  intransit() {
     var dataGet = [
       {
-        id: '7635',
-        type: 'Shoe laces',
-        items: '540',
-        status: 'Waiting',
-        lastUpdated: '12/10/2018, 10:14:29 pm'
+        id: 'CG003',
+        statusType: 'In-Transit',
+        currentLocation: 'Germany',
+        shippedFrom: 'Italy',
+        shippedTo: 'France',
+        containerQuantity: '40',
+        lastUpdated: '02/10/2018, 1:34:23 pm'
       }
     ]
 
