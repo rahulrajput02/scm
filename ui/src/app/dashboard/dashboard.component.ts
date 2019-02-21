@@ -18,6 +18,7 @@ export class dashboardComponent {
   title = 'dashboard';
   connection;
   dashboardData;
+  containerdData;
   display1;
   cargoId;
 
@@ -33,7 +34,7 @@ export class dashboardComponent {
       shippedFrom: 'China',
       shippedTo: 'Netherland',
       containerQuantity: '500',
-      lastUpdated: '02/10/2018, 1:34:23 pm'
+      lastUpdated: '02/10/2018, 02:32:23 AM'
     },
     {
       id: 'CG002',
@@ -42,7 +43,7 @@ export class dashboardComponent {
       shippedFrom: 'USA',
       shippedTo: 'Australia',
       containerQuantity: '60',
-      lastUpdated: '02/10/2018, 1:34:23 pm'
+      lastUpdated: '02/10/2018, 04:44:52 AM'
     },
     {
       id: 'CG003',
@@ -51,32 +52,60 @@ export class dashboardComponent {
       shippedFrom: 'Italy',
       shippedTo: 'France',
       containerQuantity: '40',
-      lastUpdated: '02/10/2018, 1:34:23 pm'
+      lastUpdated: '02/10/2018, 01:34:23 PM'
+    },
+    {
+      id: 'CG004',
+      statusType: 'Arrived',
+      currentLocation: 'Singapore',
+      shippedFrom: 'England',
+      shippedTo: 'Australia',
+      containerQuantity: '240',
+      lastUpdated: '02/10/2018, 11:14:23 PM'
     }
     ]
 
     this.dashboardData = dataGet;
 
 
+    var dataGet2 = [{
+      id: 'CN101',
+      statusType: 'In-Cargo',
+      currentLocation: 'Bangkok',
+      shippedFrom: 'China',
+      shippedTo: 'Ukraine',
+      customStatus: 'Completed',
+      lastUpdated: '02/10/2018, 1:34:23 PM'
+    },
+    {
+      id: 'CN103',
+      statusType: 'In-Cargo',
+      currentLocation: 'Germany',
+      shippedFrom: 'Italy',
+      shippedTo: 'Prague',
+      customStatus: 'Pending',
+      lastUpdated: '02/10/2018, 1:34:23 PM'
+    }
+    ]
+
+    this.containerData = dataGet2;
 
     this.chart = new Chart('canvas', {
       type: 'bar',
       data: {
-        labels: ["Waiting", "Recieved", "Dispached", "Confirmed"],
+        labels: ["Ready", "Arrived", "In-Transit"],
         datasets: [{
           label: 'Orders Status',
-          data: [12, 19, 3, 8],
+          data: [1, 1, 1],
           backgroundColor: [
             'rgba(255, 99, 132, 0.7)',
             'rgba(75, 192, 192, 0.7)',
-            'rgba(255, 206, 86, 0.7)',
-            'rgba(54, 162, 235, 0.7)',
+            'rgba(255, 206, 86, 0.7)'
           ],
           borderColor: [
             'rgba(255,99,132,1)',
             'rgba(75, 192, 192, 1)',
             'rgba(255, 206, 86, 1)',
-            'rgba(54, 162, 235, 1)'
           ],
           borderWidth: 1
         }]
@@ -114,7 +143,16 @@ export class dashboardComponent {
         shippedFrom: 'USA',
         shippedTo: 'Australia',
         containerQuantity: '60',
-        lastUpdated: '02/10/2018, 1:34:23 pm'
+        lastUpdated: '02/10/2018, 04:44:52 AM'
+      },
+      {
+        id: 'CG004',
+        statusType: 'Arrived',
+        currentLocation: 'Singapore',
+        shippedFrom: 'England',
+        shippedTo: 'Australia',
+        containerQuantity: '240',
+        lastUpdated: '02/10/2018, 11:14:23 PM'
       }
     ]
 
@@ -130,7 +168,7 @@ export class dashboardComponent {
         shippedFrom: 'Italy',
         shippedTo: 'France',
         containerQuantity: '40',
-        lastUpdated: '02/10/2018, 1:34:23 pm'
+        lastUpdated: '02/10/2018, 01:34:23 PM'
       }
     ]
 

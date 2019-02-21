@@ -19,7 +19,7 @@ export class supplierDashboardComponent {
   connection;
   dashboardData;
   display1;
-  cargoId;
+  containerId;
   cargoType;
 
   constructor(private fb: FormBuilder, private httpClient: HttpClient, private _chart: ChartService) {
@@ -34,7 +34,7 @@ export class supplierDashboardComponent {
       shippedFrom: 'China',
       shippedTo: 'Netherland',
       customStatus: 'Completed',
-      lastUpdated: '02/10/2018, 1:34:23 pm',
+      lastUpdated: '02/10/2018, 1:34:23 PM',
       type: 'Air'
     },
     {
@@ -44,7 +44,7 @@ export class supplierDashboardComponent {
       shippedFrom: 'USA',
       shippedTo: 'Australia',
       customStatus: 'Completed',
-      lastUpdated: '02/10/2018, 1:34:23 pm',
+      lastUpdated: '02/10/2018, 05:24:23 PM',
       type: 'Ocean'
     },
     {
@@ -54,7 +54,7 @@ export class supplierDashboardComponent {
       shippedFrom: 'Italy',
       shippedTo: 'France',
       customStatus: 'Completed',
-      lastUpdated: '02/10/2018, 1:34:23 pm',
+      lastUpdated: '02/10/2018, 03:34:54 AM',
       type: 'Road'
     },
     {
@@ -64,7 +64,7 @@ export class supplierDashboardComponent {
       shippedFrom: 'Italy',
       shippedTo: 'France',
       customStatus: 'Pending',
-      lastUpdated: '02/10/2018, 1:34:23 pm',
+      lastUpdated: '02/10/2018, 11:32:13 PM',
       type: 'Air'
     }
     ]
@@ -128,7 +128,7 @@ export class supplierDashboardComponent {
         shippedFrom: 'China',
         shippedTo: 'Netherland',
         customStatus: 'Completed',
-        lastUpdated: '02/10/2018, 1:34:23 pm',
+        lastUpdated: '02/10/2018, 1:34:23 PM',
         type: 'Air'
       },
       {
@@ -138,7 +138,7 @@ export class supplierDashboardComponent {
         shippedFrom: 'USA',
         shippedTo: 'Australia',
         customStatus: 'Completed',
-        lastUpdated: '02/10/2018, 1:34:23 pm',
+        lastUpdated: '02/10/2018, 05:24:23 PM',
         type: 'Ocean'
       },
     ]
@@ -155,8 +155,8 @@ export class supplierDashboardComponent {
         shippedFrom: 'Italy',
         shippedTo: 'France',
         customStatus: 'Pending',
-        lastUpdated: '02/10/2018, 1:34:23 pm',
-        type: 'Road'
+        lastUpdated: '02/10/2018, 11:32:13 PM',
+        type: 'Air'
       }
     ]
 
@@ -165,7 +165,7 @@ export class supplierDashboardComponent {
 
   openModal(data) {
     this.display1 = 'block';
-    this.cargoId = data.id;
+    this.containerId = data.id;
     this.cargoType = data.type;
   }
 
