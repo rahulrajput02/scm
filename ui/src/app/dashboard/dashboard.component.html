@@ -35,7 +35,7 @@
           <td>{{data.containerQuantity}}</td>
           <td>{{data.lastUpdated}}</td>
           <td><a (click)="validate()" onmouseover="" style="cursor: pointer;"><img src="assets/trace.png" alt="" border="3" height="30px" width="32px" /></a></td>
-          <td><a routerLink="/transporter/track"><img src="http://i1.wp.com/androidmag.de/wp-content/uploads/2014/03/Auto-Finder-icon.png?fit=300%2C300&w=640" alt="" border="3" height="32px" width="36px" /></a></td>
+          <td><a style="cursor: pointer;" (click)="openModal2(data.id)"><img src="http://i1.wp.com/androidmag.de/wp-content/uploads/2014/03/Auto-Finder-icon.png?fit=300%2C300&w=640" alt="" border="3" height="32px" width="36px" /></a></td>
         </tr>
       </tbody>
     </table>
@@ -83,6 +83,42 @@
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-default" (click)="onCloseHandled()">Close</button>
+        </div>
+      </div>
+    </div><!-- /.modal-dialog -->
+  </div>
+</div><!-- /.modal !-->
+
+
+
+<!-- ******************************** Moda2 *********************************************** !-->
+
+<div id="myModal1" class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display2}">
+  <div class="backdrop">
+    <div class="modal-dialog" role="document">
+
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Cargo - {{cargoId}}</h4>
+          <button type="button" class="close" aria-label="Close" (click)='onCloseHandled2()'><span aria-hidden="true">&times;</span></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div>
+            <div class="container">
+              <h1>Your order is currently here</h1>
+              <agm-map [latitude]="13.7563" [longitude]="100.5018">
+                <agm-marker [latitude]="13.7563" [longitude]="100.5018"></agm-marker>
+              </agm-map>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" (click)="onCloseHandled2()">Close</button>
         </div>
       </div>
     </div><!-- /.modal-dialog -->

@@ -18,6 +18,7 @@ export class dashboardComponent {
   dashboardData;
   containerdData;
   display1;
+  display2;
   cargoId;
 
   constructor(private fb: FormBuilder, private httpClient: HttpClient) {
@@ -143,12 +144,21 @@ export class dashboardComponent {
   }
 
   openModal(id) {
-  this.display1 = 'block';
-  this.cargoId = id;
-}
+    this.display1 = 'block';
+    this.cargoId = id;
+  }
 
-onCloseHandled() {
-  this.display1 = 'none';
-}
+  openModal2(id) {
+    this.display2 = 'block';
+    this.cargoId = id;
+  }
+
+  onCloseHandled() {
+    this.display1 = 'none';
+  }
+
+  onCloseHandled2() {
+    this.display2 = 'none';
+  }
 
 }

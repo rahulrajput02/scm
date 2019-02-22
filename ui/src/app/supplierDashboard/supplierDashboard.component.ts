@@ -17,6 +17,7 @@ export class supplierDashboardComponent {
   connection;
   dashboardData;
   display1;
+  display2;
   containerId;
   cargoType;
 
@@ -132,8 +133,16 @@ export class supplierDashboardComponent {
     this.cargoType = data.type;
   }
 
+  openModal2(data) {
+    this.display2 = 'block';
+  }
+
   onCloseHandled() {
     this.display1 = 'none';
+  }
+
+  onCloseHandled2() {
+    this.display2 = 'none';
   }
 
 }
