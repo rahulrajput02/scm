@@ -13,7 +13,7 @@
 
     <table id="example" class="table table-striped" style="width:100%; margin-top: 1%">
       <thead class="thead-dark">
-        <tr>
+        <tr style="text-align: center; vertical-align: middle;">
           <th>Cargo Id</th>
           <th>Cargo Status</th>
           <th>Current Location</th>
@@ -27,7 +27,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let data of dashboardData" [ngClass]="{'table-success' : (data.statusType == 'Recieved'), 'table-danger': (data.status == 'Waiting')}">
-          <td><a style="color:blue; cursor:pointer; " (click)="openModal(data.id)"><b>{{data.id}}</b></a></td>
+          <td><a style="color:blue; cursor:pointer; " (click)="openModal(data)"><b>{{data.id}}</b></a></td>
           <td>{{data.statusType}}</td>
           <td>{{data.currentLocation}}</td>
           <td>{{data.shippedFrom}}</td>
@@ -56,7 +56,7 @@
       <div class="modal-content">
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Cargo - {{cargoId}}</h4>
+          <h4 class="modal-title">Cargo - {{cargoId}} - {{cargoType}}</h4>
           <button type="button" class="close" aria-label="Close" (click)='onCloseHandled()'><span aria-hidden="true">&times;</span></button>
         </div>
 
@@ -108,7 +108,7 @@
         <div class="modal-body">
           <div>
             <div class="container">
-              <h1>Your order is currently here</h1>
+              <h5>Cargo current Location:</h5><br>
               <agm-map [latitude]="13.7563" [longitude]="100.5018">
                 <agm-marker [latitude]="13.7563" [longitude]="100.5018"></agm-marker>
               </agm-map>

@@ -20,6 +20,7 @@ export class dashboardComponent {
   display1;
   display2;
   cargoId;
+  cargoType;
 
   constructor(private fb: FormBuilder, private httpClient: HttpClient) {
   }
@@ -33,7 +34,8 @@ export class dashboardComponent {
       shippedFrom: 'China',
       shippedTo: 'Netherland',
       containerQuantity: '500',
-      lastUpdated: '02/10/2018, 02:32:23 AM'
+      lastUpdated: '02/10/2018, 02:32:23 AM',
+      cargoType: 'Air'
     },
     {
       id: 'CG002',
@@ -42,7 +44,8 @@ export class dashboardComponent {
       shippedFrom: 'USA',
       shippedTo: 'Australia',
       containerQuantity: '60',
-      lastUpdated: '02/10/2018, 04:44:52 AM'
+      lastUpdated: '02/10/2018, 04:44:52 AM',
+      cargoType: 'Ocean'
     },
     {
       id: 'CG003',
@@ -51,7 +54,8 @@ export class dashboardComponent {
       shippedFrom: 'Italy',
       shippedTo: 'France',
       containerQuantity: '40',
-      lastUpdated: '02/10/2018, 01:34:23 PM'
+      lastUpdated: '02/10/2018, 01:34:23 PM',
+      cargoType: 'Road'
     },
     {
       id: 'CG004',
@@ -60,7 +64,8 @@ export class dashboardComponent {
       shippedFrom: 'England',
       shippedTo: 'Australia',
       containerQuantity: '240',
-      lastUpdated: '02/10/2018, 11:14:23 PM'
+      lastUpdated: '02/10/2018, 11:14:23 PM',
+      cargoType: 'Multimodal'
     }
     ]
 
@@ -143,9 +148,10 @@ export class dashboardComponent {
     this.dashboardData = dataGet;
   }
 
-  openModal(id) {
+  openModal(data) {
     this.display1 = 'block';
-    this.cargoId = id;
+    this.cargoId = data.id;
+    this.cargoType = data.cargoType;
   }
 
   openModal2(id) {
