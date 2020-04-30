@@ -27,7 +27,7 @@
     "bootstrap": "^4.1.1",
     "chart.js": "^2.7.2",
     "core-js": "^2.5.4",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "jshit": "0.0.1",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.3.2",
